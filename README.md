@@ -1,2 +1,2 @@
-# Modulo-6
-Modulo 6 Programación II UIP
+# Modulo-7
+Modulo 7 Programación II UIP
