@@ -2,8 +2,9 @@ package Funciones;
 
 import java.util.Scanner;
 
-public class Potencia {
-    public static double calcularPotencia(Scanner scanner) {
+public class Potencia implements Operacion {
+    @Override
+    public double calcular(Scanner scanner) {
         System.out.println("Ingrese la base:");
         double base = scanner.nextDouble();
         System.out.println("Ingrese el exponente:");
@@ -11,7 +12,7 @@ public class Potencia {
         return potencia(base, exponente);
     }
 
-    private static double potencia(double base, int exponente) {
+    private double potencia(double base, int exponente) {
         if (exponente == 0) {
             return 1;
         } else if (exponente > 0) {
@@ -21,4 +22,3 @@ public class Potencia {
         }
     }
 }
-

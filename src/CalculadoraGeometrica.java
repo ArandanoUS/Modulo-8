@@ -8,7 +8,7 @@ public class CalculadoraGeometrica {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        List<Double> resultados = new ArrayList<>();
+        Calculadora calculadora = new Calculadora();
 
         do {
             try {
@@ -18,38 +18,34 @@ public class CalculadoraGeometrica {
                 System.out.println("3. Potencia");
                 int opcionOperacion = scanner.nextInt();
 
-                double resultado = 0;
+                Operacion operacion = null;
 
                 switch (opcionOperacion) {
-                    case 1: // Área
-                        resultado = Area.calcularArea(scanner);
+                    case 1:
+                        operacion = new Area();
                         break;
-                    case 2: // Perímetro
-                        resultado = Perimetro.calcularPerimetro(scanner);
+                    case 2:
+                        operacion = new Perimetro();
                         break;
-                    case 3: // Potencia
-                        resultado = Potencia.calcularPotencia(scanner);
+                    case 3:
+                        operacion = new Potencia();
                         break;
                     default:
                         System.out.println("Opción no válida.");
                 }
 
-                resultados.add(resultado);
+                if (operacion != null) {
+                    double resultado = calculadora.realizarOperacion(operacion, scanner);
+                    System.out.println("El resultado es: " + resultado);
+                }
 
-                System.out.println("El resultado es: " + resultado);
-
-            } catch (InputMismatchException e) {
+            } catch (Exception e) {
                 System.out.println("Error: Entrada inválida. Por favor ingrese un número válido.");
                 scanner.next();
             }
 
             System.out.println("¿Desea realizar otra operación? (s/n)");
         } while (scanner.next().equalsIgnoreCase("s"));
-
-        System.out.println("Resultados:");
-        for (int i = 0; i < resultados.size(); i++) {
-            System.out.println("Operación " + (i + 1) + ": " + resultados.get(i));
-        }
 
         scanner.close();
     }

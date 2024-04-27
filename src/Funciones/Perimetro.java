@@ -2,16 +2,17 @@ package Funciones;
 
 import java.util.Scanner;
 
-public class Perimetro {
-    public static double calcularPerimetro(Scanner scanner) {
+public class Perimetro implements Operacion {
+    @Override
+    public double calcular(Scanner scanner) {
         System.out.println("Seleccione la figura geométrica:");
         System.out.println("1. Círculo");
         System.out.println("2. Cuadrado");
         System.out.println("3. Triángulo");
         System.out.println("4. Rectángulo");
         System.out.println("5. Pentágono");
-        int opcionFigura = scanner.nextInt();
 
+        int opcionFigura = scanner.nextInt();
         double perimetro = 0;
 
         switch (opcionFigura) {

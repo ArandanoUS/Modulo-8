@@ -2,16 +2,17 @@ package Funciones;
 
 import java.util.Scanner;
 
-public class Area {
-    public static double calcularArea(Scanner scanner) {
+public class Area implements Operacion {
+    @Override
+    public double calcular(Scanner scanner) {
         System.out.println("Seleccione la figura geométrica:");
         System.out.println("1. Círculo");
         System.out.println("2. Cuadrado");
         System.out.println("3. Triángulo");
         System.out.println("4. Rectángulo");
         System.out.println("5. Pentágono");
-        int opcionFigura = scanner.nextInt();
 
+        int opcionFigura = scanner.nextInt();
         double area = 0;
 
         switch (opcionFigura) {
@@ -53,3 +54,5 @@ public class Area {
         return area;
     }
 }
+
+
